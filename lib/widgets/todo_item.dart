@@ -1,27 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/constants/colors.dart';
+import 'package:todo_app/model/todo.dart';
 
 class ToDoItem extends StatelessWidget {
-  const ToDoItem({super.key});
+  final ToDo todo;
+  final onToDoChanged;
+  final onDeleteItem;
+
+  const ToDoItem({super.key, 
+  required this.todo, 
+  required this.onToDoChanged, 
+  required this.onDeleteItem,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 20),
       child: ListTile(
         onTap: () {
-          
+          onToDoChanged(todo);
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
         tileColor: const Color.fromARGB(255, 46, 45, 45),
-        leading: const Icon(Icons.check_box, color: tdBlue,
+        leading: Icon(
+          todo.isDone? Icons.check_box : Icons.check_box_outline_blank, 
+          color: tdBlue,
         ),
-        title: const Text('Tomar banho', 
+        title: Text(todo.todoText!, 
         style: TextStyle(
           color: tdBGColor,
-          decoration: TextDecoration.lineThrough,
+          decoration: todo.isDone? TextDecoration.lineThrough : null,
           ),
         ),
         trailing: GestureDetector(
@@ -37,7 +48,7 @@ class ToDoItem extends StatelessWidget {
             color: Colors.white),
           ),
           onTap: () {
-            
+            onDeleteItem(todo.id);
           },
         ),
       ),
