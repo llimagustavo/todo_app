@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: corPreta,
-        appBar: _buildAppBar(),
+        appBar: _appBar(),
         body: Stack(
           children: [
             Padding(
@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   const SizedBox(height: 15),
-                  searchBox(),
+                  caixadePesquisa(),
                   Expanded(
                     child: ListView(
                       children: [
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                             bottom: 20,
                           ),
                           child: const Center(
-                            child: Text('Tarefas', style: TextStyle(
+                            child: Text('Todas as tarefas', style: TextStyle(
                               color: corBranca, fontSize: 30, fontWeight: FontWeight.normal,
                               ),
                             ),
@@ -129,16 +129,21 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  Widget searchBox() {
+  Widget caixadePesquisa() {
     return Container(
       decoration: BoxDecoration(
         color: const Color.fromARGB(88, 0, 0, 0),
         borderRadius: BorderRadius.circular(15),
       ),
       child: const TextField(
+        style: TextStyle(
+          color: corBranca),
         decoration: InputDecoration(
           border: InputBorder.none,
-          prefixIcon: Icon(Icons.search, color: corBranca, size: 20,),
+          prefixIcon: Icon(
+            Icons.search, 
+            color: corBranca, 
+            size: 20),
           hintText: 'Pesquisar',
           hintStyle: TextStyle(color: corCinza),
         ),
@@ -146,7 +151,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  AppBar _buildAppBar() {
+  AppBar _appBar() {
     return AppBar(
       elevation: 0,
       backgroundColor: corPreta,
@@ -156,9 +161,11 @@ class _HomePageState extends State<HomePage> {
           color: corBranca,
           size: 30,
         ),
-      actions: [ClipRRect(
+      actions: [
+          ClipRRect(
         child: Image.asset('assets/images/avatar.png'),
-      )],
+        ),
+      ],
     );
   }
 }
