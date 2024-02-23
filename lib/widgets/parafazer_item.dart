@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/constants/colors.dart';
-import 'package:todo_app/model/todo.dart';
+import 'package:todo_app/model/parafazer.dart';
 
 class ItemParaFazer extends StatelessWidget {
   final ParaFazer parafazer;
