@@ -4,7 +4,7 @@ import 'package:todo_app/model/todo.dart';
 import 'package:todo_app/widgets/todo_item.dart';
 
 class HomePage extends StatefulWidget {
-   HomePage({super.key});
+   const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: tdBlack,
+      backgroundColor: corPreta,
         appBar: _buildAppBar(),
         body: Stack(
           children: [
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           child: const Center(
                             child: Text('Tarefas', style: TextStyle(
-                              color: tdBGColor, fontSize: 30, fontWeight: FontWeight.normal,
+                              color: corBranca, fontSize: 30, fontWeight: FontWeight.normal,
                               ),
                             ),
                           ),
@@ -47,8 +47,7 @@ class _HomePageState extends State<HomePage> {
                           todo: todoo,
                           onToDoChanged: _handleToDoChange,
                           onDeleteItem: _deleteToDoItem,
-                          ),
-                        
+                          ),    
                     ],),
                   ),
                 ],
@@ -69,9 +68,9 @@ class _HomePageState extends State<HomePage> {
                       left: 20
                       ),
                       decoration: BoxDecoration(
-                        color: tdBlack,
+                        color: corPreta,
                         boxShadow: const [BoxShadow(
-                          color: tdGrey,
+                          color: corCinza,
                           blurRadius: 10,
                           spreadRadius: 0.0,
                         )],
@@ -82,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                           border: InputBorder.none,
                           hintText: 'Adicionar uma tarefa',
                           hintStyle: TextStyle(
-                            color: tdBGColor,
+                            color: corBranca,
                           ),
                         ),
                       ),
@@ -95,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: tdBlue,
+                        backgroundColor: corAzul,
                         minimumSize: const Size(50, 60),
                         shape: ContinuousRectangleBorder(
                           borderRadius: BorderRadius.circular(20)
@@ -139,9 +138,9 @@ class _HomePageState extends State<HomePage> {
       child: const TextField(
         decoration: InputDecoration(
           border: InputBorder.none,
-          prefixIcon: Icon(Icons.search, color: tdBGColor, size: 20,),
+          prefixIcon: Icon(Icons.search, color: corBranca, size: 20,),
           hintText: 'Pesquisar',
-          hintStyle: TextStyle(color: tdGrey),
+          hintStyle: TextStyle(color: corCinza),
         ),
       ),
     );
@@ -150,11 +149,11 @@ class _HomePageState extends State<HomePage> {
   AppBar _buildAppBar() {
     return AppBar(
       elevation: 0,
-      backgroundColor: tdBlack,
+      backgroundColor: corPreta,
       title: 
         const Icon(
           Icons.menu,
-          color: tdBGColor,
+          color: corBranca,
           size: 30,
         ),
       actions: [ClipRRect(

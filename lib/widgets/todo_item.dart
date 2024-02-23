@@ -27,11 +27,11 @@ class ToDoItem extends StatelessWidget {
         tileColor: const Color.fromARGB(255, 46, 45, 45),
         leading: Icon(
           todo.isDone? Icons.check_box : Icons.check_box_outline_blank, 
-          color: tdBlue,
+          color: corAzul,
         ),
         title: Text(todo.todoText!, 
         style: TextStyle(
-          color: tdBGColor,
+          color: corBranca,
           decoration: todo.isDone? TextDecoration.lineThrough : null,
           ),
         ),
@@ -41,7 +41,7 @@ class ToDoItem extends StatelessWidget {
             width: 35,
             height: 35,
             decoration: BoxDecoration(
-              color: tdRed,
+              color: corVermelha,
               borderRadius: BorderRadius.circular(7),
             ),
             child: const Icon(Icons.delete, 
