@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/constants/colors.dart';
 import 'package:todo_app/model/todo.dart';
 
-class ToDoItem extends StatelessWidget {
-  final ToDo todo;
-  final onToDoChanged;
-  final onDeleteItem;
+class ItemParaFazer extends StatelessWidget {
+  final ParaFazer parafazer;
+  final quandoPressionar;
+  final deletarItem;
 
-  const ToDoItem({super.key, 
-  required this.todo, 
-  required this.onToDoChanged, 
-  required this.onDeleteItem,
+  const ItemParaFazer({super.key, 
+  required this.parafazer, 
+  required this.quandoPressionar, 
+  required this.deletarItem,
   });
 
   @override
@@ -19,20 +19,23 @@ class ToDoItem extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 20),
       child: ListTile(
         onTap: () {
-          onToDoChanged(todo);
+          quandoPressionar(parafazer);
+        },
+        onLongPress: () {
+          // Adicionar função de alteração de texto mais tarde
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
         tileColor: const Color.fromARGB(255, 46, 45, 45),
         leading: Icon(
-          todo.isDone? Icons.check_box : Icons.check_box_outline_blank, 
+          parafazer.estaFeito? Icons.check_box : Icons.check_box_outline_blank, 
           color: corAzul,
         ),
-        title: Text(todo.todoText!, 
+        title: Text(parafazer.parafazerTexto!, 
         style: TextStyle(
           color: corBranca,
-          decoration: todo.isDone? TextDecoration.lineThrough : null,
+          decoration: parafazer.estaFeito? TextDecoration.lineThrough : null,
           ),
         ),
         trailing: GestureDetector(
@@ -48,7 +51,7 @@ class ToDoItem extends StatelessWidget {
             color: Colors.white),
           ),
           onTap: () {
-            onDeleteItem(todo.id);
+            deletarItem(parafazer.id);
           },
         ),
       ),

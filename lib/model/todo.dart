@@ -1,21 +1,21 @@
-class ToDo{
+class ParaFazer{
   String? id;
-  String? todoText;
-  bool isDone;
+  String? parafazerTexto;
+  bool estaFeito;
 
-  ToDo ({
+  ParaFazer ({
     required this.id,
-    required this.todoText,
-    this.isDone = false,
+    required this.parafazerTexto,
+    this.estaFeito = false,
   });
 
-static List<ToDo> todoList() {
+static List<ParaFazer> parafazerLista() {
   return [
-    ToDo(id: '01', todoText: 'Exercício da manhã', isDone: true),
-    ToDo(id: '02', todoText: 'Terminar o projeto de extensão', isDone: true),
-    ToDo(id: '03', todoText: 'Jogar por 1 hora',),
-    ToDo(id: '04', todoText: 'Ir para a faculdade',),
-    ToDo(id: '05', todoText: 'Comprar a RTX 4090',),
+    ParaFazer(id: '01', parafazerTexto: 'Exercício da manhã', estaFeito: true),
+    ParaFazer(id: '02', parafazerTexto: 'Terminar o projeto de extensão', estaFeito: true),
+    ParaFazer(id: '03', parafazerTexto: 'Jogar por 1 hora',),
+    ParaFazer(id: '04', parafazerTexto: 'Ir para a faculdade',),
+    ParaFazer(id: '05', parafazerTexto: 'Comprar a RTX 4090',),
     ];
   }
 }

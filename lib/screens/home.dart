@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final todosList = ToDo.todoList();
+  final todosList = ParaFazer.parafazerLista();
 
   @override
   Widget build(BuildContext context) {
@@ -32,21 +32,21 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           margin: const EdgeInsets.only(
                             top: 40,
-                            bottom: 20,
+                            bottom: 30,
                           ),
                           child: const Center(
                             child: Text('Todas as tarefas', style: TextStyle(
-                              color: corBranca, fontSize: 30, fontWeight: FontWeight.normal,
+                              color: corBranca, fontSize: 30, fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
                         ),
 
-                        for (ToDo todoo in todosList)
-                        ToDoItem(
-                          todo: todoo,
-                          onToDoChanged: _handleToDoChange,
-                          onDeleteItem: _deleteToDoItem,
+                        for (ParaFazer todoo in todosList)
+                        ItemParaFazer(
+                          parafazer: todoo,
+                          quandoPressionar: _handleToDoChange,
+                          deletarItem: _deleteToDoItem,
                           ),    
                     ],),
                   ),
@@ -117,9 +117,9 @@ class _HomePageState extends State<HomePage> {
   }
 
 
-  void _handleToDoChange(ToDo todo) {
+  void _handleToDoChange(ParaFazer todo) {
     setState(() {
-      todo.isDone = !todo.isDone;
+      todo.estaFeito = !todo.estaFeito;
     });
   }
 
