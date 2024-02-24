@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   
-  final parafazeralista = ParaFazer.parafazerLista();
+  final parafazeralista = Tarefa.parafazerLista();
   final _parafazerController = TextEditingController();
 
   @override
@@ -43,13 +43,14 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-
-                        for (ParaFazer todoo in parafazeralista)
+                        // cada item é feito aqui através desse for
+                        for (Tarefa todoo in parafazeralista)
                         ItemParaFazer(
                           parafazer: todoo,
                           quandoClicar: _manusearParaFazer,
                           deletarItem: _deletarItemParaFazer,
-                          ),    
+                          ),
+
                     ],),
                   ),
                 ],
@@ -121,7 +122,7 @@ class _HomePageState extends State<HomePage> {
   }
 
 
-  void _manusearParaFazer(ParaFazer todo) {
+  void _manusearParaFazer(Tarefa todo) {
     setState(() {
       todo.estaFeito = !todo.estaFeito;
     });
@@ -135,9 +136,9 @@ class _HomePageState extends State<HomePage> {
 
   void _adicionarItem(String parafazer) {
     setState(() {
-      parafazeralista.add(ParaFazer(
+      parafazeralista.add(Tarefa(
       id: DateTime.now().microsecondsSinceEpoch.toString(), 
-      parafazerTexto: parafazer));
+      tarefaTexto: parafazer));
     });
     _parafazerController.clear();
   }

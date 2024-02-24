@@ -1,21 +1,21 @@
-class ParaFazer{
+class Tarefa{
   String? id;
-  String? parafazerTexto;
+  String? tarefaTexto;
   bool estaFeito;
 
-  ParaFazer ({
+  Tarefa ({
     required this.id,
-    required this.parafazerTexto,
+    required this.tarefaTexto,
     this.estaFeito = false,
   });
 
-static List<ParaFazer> parafazerLista() {
+static List<Tarefa> parafazerLista() {
   return [
-    ParaFazer(id: '01', parafazerTexto: 'Exercício da manhã', estaFeito: true),
-    ParaFazer(id: '02', parafazerTexto: 'Terminar o projeto de extensão', estaFeito: true),
-    ParaFazer(id: '03', parafazerTexto: 'Jogar por 1 hora',),
-    ParaFazer(id: '04', parafazerTexto: 'Ir para a faculdade',),
-    ParaFazer(id: '05', parafazerTexto: 'Comprar a RTX 4090',),
+    Tarefa(id: '01', tarefaTexto: 'Ir para a academia', estaFeito: true),
+    Tarefa(id: '02', tarefaTexto: 'Terminar o projeto de extensão', estaFeito: true),
+    Tarefa(id: '03', tarefaTexto: 'Jogar por 1 hora',),
+    Tarefa(id: '04', tarefaTexto: 'Ir para a faculdade',),
+    Tarefa(id: '05', tarefaTexto: 'Comprar cebola',),
     ];
   }
 }

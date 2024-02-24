@@ -3,7 +3,7 @@ import 'package:todo_app/constants/colors.dart';
 import 'package:todo_app/model/parafazer.dart';
 
 class ItemParaFazer extends StatelessWidget {
-  final ParaFazer parafazer;
+  final Tarefa parafazer;
   final quandoClicar;
   final deletarItem;
 
@@ -32,7 +32,7 @@ class ItemParaFazer extends StatelessWidget {
           parafazer.estaFeito? Icons.check_box : Icons.check_box_outline_blank, 
           color: corAzul,
         ),
-        title: Text(parafazer.parafazerTexto!, 
+        title: Text(parafazer.tarefaTexto!, 
         style: TextStyle(
           color: corBranca,
           decoration: parafazer.estaFeito? TextDecoration.lineThrough : null,
