@@ -4,12 +4,12 @@ import 'package:todo_app/model/parafazer.dart';
 
 class ItemParaFazer extends StatelessWidget {
   final ParaFazer parafazer;
-  final quandoPressionar;
+  final quandoClicar;
   final deletarItem;
 
   const ItemParaFazer({super.key, 
   required this.parafazer, 
-  required this.quandoPressionar, 
+  required this.quandoClicar, 
   required this.deletarItem,
   });
 
@@ -19,7 +19,7 @@ class ItemParaFazer extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 20),
       child: ListTile(
         onTap: () {
-          quandoPressionar(parafazer);
+          quandoClicar(parafazer);
         },
         onLongPress: () {
           // Adicionar função de alteração de texto mais tarde

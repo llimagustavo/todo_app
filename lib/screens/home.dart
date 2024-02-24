@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final todosList = ParaFazer.parafazerLista();
+  final parafazeralista = ParaFazer.parafazerLista();
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +42,11 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
 
-                        for (ParaFazer todoo in todosList)
+                        for (ParaFazer todoo in parafazeralista)
                         ItemParaFazer(
                           parafazer: todoo,
-                          quandoPressionar: _handleToDoChange,
-                          deletarItem: _deleteToDoItem,
+                          quandoClicar: _handleToDoChange,
+                          deletarItem: _deletarItemParaFazer,
                           ),    
                     ],),
                   ),
@@ -123,9 +123,9 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void _deleteToDoItem(String id) {
+  void _deletarItemParaFazer(String id) {
     setState(() {
-      todosList.removeWhere((item) => item.id == id);
+      parafazeralista.removeWhere((item) => item.id == id);
     });
   }
 
