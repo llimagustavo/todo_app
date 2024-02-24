@@ -151,30 +151,47 @@ class _HomePageState extends State<HomePage> {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Editar Tarefa', 
+        backgroundColor: corPreta,
+        title: const Text('Editar Tarefa', 
         style: TextStyle(
-          color: corPreta
+          color: corBranca
             ),
           ),
         content: TextField(
           controller: _controller,
-          style: TextStyle(color: corPreta),
+          style: const TextStyle(color: corBranca),
         ),
         actions: [
           TextButton(
+            style: ButtonStyle(
+              backgroundColor: const MaterialStatePropertyAll(corAzul),
+              shape: MaterialStatePropertyAll(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadiusDirectional.circular(10),
+                ),
+              ),
+            ),
             onPressed: () {
               setState(() {
                 tarefa.tarefaTexto = _controller.text;
               });
               Navigator.of(context).pop();
             },
-            child: Text('Salvar'),
+            child: const Text('Salvar', 
+            style: TextStyle(
+              color: corBranca,
+              ),
+            ),
           ),
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('Cancelar'),
+            child: const Text('Cancelar', 
+            style: TextStyle(
+              color: corVermelha,
+              ),
+            ),
           ),
         ],
       );
