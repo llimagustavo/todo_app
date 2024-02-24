@@ -11,7 +11,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  
   final parafazeralista = ParaFazer.parafazerLista();
+  final _parafazerController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                         for (ParaFazer todoo in parafazeralista)
                         ItemParaFazer(
                           parafazer: todoo,
-                          quandoClicar: _handleToDoChange,
+                          quandoClicar: _manusearParaFazer,
                           deletarItem: _deletarItemParaFazer,
                           ),    
                     ],),
@@ -76,8 +78,10 @@ class _HomePageState extends State<HomePage> {
                         )],
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        style: const TextStyle(color: corBranca),
+                        controller: _parafazerController,
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Adicionar uma tarefa',
                           hintStyle: TextStyle(
@@ -105,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                         Icons.add, 
                         color: Colors.white, size: 25),
                         onPressed: () {
-                          
+                          _adicionarItem(_parafazerController.text);
                       },
                     ),
                   ),
@@ -117,7 +121,7 @@ class _HomePageState extends State<HomePage> {
   }
 
 
-  void _handleToDoChange(ParaFazer todo) {
+  void _manusearParaFazer(ParaFazer todo) {
     setState(() {
       todo.estaFeito = !todo.estaFeito;
     });
@@ -129,6 +133,17 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _adicionarItem(String parafazer) {
+    setState(() {
+      parafazeralista.add(ParaFazer(
+      id: DateTime.now().microsecondsSinceEpoch.toString(), 
+      parafazerTexto: parafazer));
+    });
+    _parafazerController.clear();
+  }
+
+  
+
   Widget caixadePesquisa() {
     return Container(
       decoration: BoxDecoration(
@@ -136,6 +151,7 @@ class _HomePageState extends State<HomePage> {
         borderRadius: BorderRadius.circular(15),
       ),
       child: const TextField(
+        
         style: TextStyle(
           color: corBranca),
         decoration: InputDecoration(
