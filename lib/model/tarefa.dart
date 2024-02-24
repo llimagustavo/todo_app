@@ -9,7 +9,7 @@ class Tarefa{
     this.estaFeito = false,
   });
 
-static List<Tarefa> parafazerLista() {
+static List<Tarefa> listadeTarefas() {
   return [
     Tarefa(id: '01', tarefaTexto: 'Ir para a academia', estaFeito: true),
     Tarefa(id: '02', tarefaTexto: 'Terminar o projeto de extensão', estaFeito: true),

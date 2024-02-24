@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/constants/colors.dart';
-import 'package:todo_app/model/parafazer.dart';
-import 'package:todo_app/widgets/parafazer_item.dart';
+import 'package:todo_app/model/tarefa.dart';
+import 'package:todo_app/widgets/item_parafazer.dart';
 
 class HomePage extends StatefulWidget {
    const HomePage({super.key});
@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   
-  final parafazeralista = Tarefa.parafazerLista();
+  final parafazeralista = Tarefa.listadeTarefas();
   final _parafazerController = TextEditingController();
 
   @override
@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
                           parafazer: todoo,
                           quandoClicar: _manusearParaFazer,
                           deletarItem: _deletarItemParaFazer,
+                          editarTarefa: _editarTarefa,
                           ),
 
                     ],),
@@ -143,6 +144,43 @@ class _HomePageState extends State<HomePage> {
     _parafazerController.clear();
   }
 
+  void _editarTarefa(Tarefa tarefa) {
+  TextEditingController _controller = TextEditingController(text: tarefa.tarefaTexto);
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('Editar Tarefa', 
+        style: TextStyle(
+          color: corPreta
+            ),
+          ),
+        content: TextField(
+          controller: _controller,
+          style: TextStyle(color: corPreta),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              setState(() {
+                tarefa.tarefaTexto = _controller.text;
+              });
+              Navigator.of(context).pop();
+            },
+            child: Text('Salvar'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('Cancelar'),
+          ),
+        ],
+      );
+    },
+  );
+}
   
 
   Widget caixadePesquisa() {

@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/constants/colors.dart';
-import 'package:todo_app/model/parafazer.dart';
+import 'package:todo_app/model/tarefa.dart';
 
 class ItemParaFazer extends StatelessWidget {
   final Tarefa parafazer;
   final quandoClicar;
   final deletarItem;
+  final editarTarefa;
 
   const ItemParaFazer({super.key, 
   required this.parafazer, 
   required this.quandoClicar, 
   required this.deletarItem,
+  required this.editarTarefa,
   });
 
   @override
@@ -22,6 +24,7 @@ class ItemParaFazer extends StatelessWidget {
           quandoClicar(parafazer);
         },
         onLongPress: () {
+          editarTarefa(parafazer);
           // Adicionar função de alteração de texto mais tarde
         },
         shape: RoundedRectangleBorder(
