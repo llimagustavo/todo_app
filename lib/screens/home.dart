@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
         )
       );
   }
-  // FUNÇÕES DO APP ----------------------------------------------------------------------------------------------
+  //  ----------------------------------------------- FUNÇÕES DO APP --------------------------------------------------------
 
   void _manusearParaFazer(Tarefa todo) {
     setState(() {
@@ -137,15 +137,19 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _adicionarItem(String parafazer) {
+  if (parafazer.isNotEmpty) {
     setState(() {
       parafazeralista.add(Tarefa(
-      id: DateTime.now().microsecondsSinceEpoch.toString(), 
-      tarefaTexto: parafazer));
+        id: DateTime.now().microsecondsSinceEpoch.toString(),
+        tarefaTexto: parafazer,
+      ));
     });
     _parafazerController.clear();
-  }
+  } 
+}
 
   void _editarTarefa(Tarefa tarefa) {
+  // ignore: no_leading_underscores_for_local_identifiers
   TextEditingController _controller = TextEditingController(text: tarefa.tarefaTexto);
 
   showDialog(
@@ -200,7 +204,7 @@ class _HomePageState extends State<HomePage> {
   );
 }
   
- // ---------------------------------------------------------------------------------------------------------------
+ // -----------------------------------------------------------------------------------------------------------------------------
  
   Widget caixadePesquisa() {
     return Container(
