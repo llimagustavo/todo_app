@@ -11,6 +11,6 @@ O aplicativo permite que os usuários mantenham o controle de suas tarefas diár
 - Adicionar novas tarefas.
 - Marcar tarefas como concluídas.
 - Excluir tarefas não desejadas.
-
+- Editar as tarefas adicionadas.
 
 ---
