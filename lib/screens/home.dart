@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        // cada item é feito aqui através desse for
+                        // cada item é feito aqui através desse for -------------------------------------------------------------
                         for (Tarefa todoo in parafazeralista)
                         ItemParaFazer(
                           parafazer: todoo,
@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> {
 
                     ],),
                   ),
+                  const SizedBox(height: 80),
                 ],
               ),
             ),
@@ -121,7 +122,7 @@ class _HomePageState extends State<HomePage> {
         )
       );
   }
-
+  // FUNÇÕES DO APP ----------------------------------------------------------------------------------------------
 
   void _manusearParaFazer(Tarefa todo) {
     setState(() {
@@ -199,7 +200,8 @@ class _HomePageState extends State<HomePage> {
   );
 }
   
-
+ // ---------------------------------------------------------------------------------------------------------------
+ 
   Widget caixadePesquisa() {
     return Container(
       decoration: BoxDecoration(
