@@ -149,7 +149,6 @@ class _HomePageState extends State<HomePage> {
 }
 
   void _editarTarefa(Tarefa tarefa) {
-  // ignore: no_leading_underscores_for_local_identifiers
   TextEditingController _controller = TextEditingController(text: tarefa.tarefaTexto);
 
   showDialog(

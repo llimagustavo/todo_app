@@ -25,7 +25,6 @@ class ItemParaFazer extends StatelessWidget {
         },
         onLongPress: () {
           editarTarefa(parafazer);
-          // Adicionar função de alteração de texto mais tarde
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
