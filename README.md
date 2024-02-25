@@ -1,4 +1,4 @@
-# Lista de Tarefas App
+# Aplicativo de Lista de Tarefas
 
 Um simples aplicativo de lista de tarefas desenvolvido em Flutter.
 
